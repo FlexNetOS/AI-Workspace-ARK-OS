@@ -1,0 +1,24 @@
+services:
+  app:
+    image: image
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m uvicorn AI-Workspace-ARK-OS.Agent_Tools.agent_tools:app --host 0.0.0.0 --port 8000"]
+    ports:
+      - 8000:8000
+      - 5678:5678
+    volumes:
+      - ./AI-Workspace-ARK-OS:/workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 2
+              capabilities: [gpu]
+        limits:
+          memory: 500GB
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - CUDA_VISIBLE_DEVICES=0,1
