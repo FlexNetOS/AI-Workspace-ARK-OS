@@ -1,0 +1,12 @@
+{
+  // Place your settings in this file to overwrite default and user settings.
+  "window.openFoldersInNewWindow": "off",
+  "files.hotExit": "onExitAndWindowClose",
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.showTabs": "multiple",
+  "workbench.sideBar.location": "left",
+  "workbench.statusBar.visible": true,
+  "workbench.tips.enabled": false
+}
